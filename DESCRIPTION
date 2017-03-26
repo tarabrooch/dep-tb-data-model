@@ -1,4 +1,4 @@
-Package: tb_data_model
+Package: tbdatamodel
 Type: Package
 Title: Model data from System
 Version: 0.1.0
