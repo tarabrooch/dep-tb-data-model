@@ -1,9 +1,9 @@
-Package: nsdl4tb
+Package: tb_data_model
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Model data from System
 Version: 0.1.0
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: More about what it does (maybe more than one line)
+Authors@R: person("Eduardo", "Flores", email = "eduardo@tara-brooch.com", role = c("aut", "cre"))
+Description: Uses to import data from systems. 
 License: What license is it under?
 LazyData: TRUE
 RoxygenNote: 5.0.1
