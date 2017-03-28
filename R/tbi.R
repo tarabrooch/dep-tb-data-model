@@ -13,11 +13,23 @@ tbi_importar <- function(db, l){
   }
   if(db == "inventario"){
     s <- tbi_h_escogerlocal(l)
+    
+    # la sub-ruta de la computadora de mi mama es diferente (sisJoy se llama). 
+    # Esto no lo puedo cambiar, porque para los cortes es otra ruta que nace de la de arriba.
+    # Entonces, cambiare los archivos, dependiendo el local
+    if(l==2){
+    # local 2 es el de alba...
+    archivo <- paste0(s, "SisJOY/DATOS2/ACARTI00.DBF")
+    m_log <- paste0(s, "SisJOY/DATOS2/ADMOIN00.DBF")
+    m_fam <- paste0(s, "SisJOY/DATOS2/ACGRUP00.DBF")
+    m_met <- paste0(s, "SisJOY/DATOS2/ACMATE00.DBF")
+    }else{
     archivo <- paste0(s, "Sistema/DATOS2/ACARTI00.DBF")
     m_log <- paste0(s, "Sistema/DATOS2/ADMOIN00.DBF")
     m_fam <- paste0(s, "Sistema/DATOS2/ACGRUP00.DBF")
     m_met <- paste0(s, "Sistema/DATOS2/ACMATE00.DBF")
-
+    }
+    
     print(paste0(" >> Usando: tbi_importer_inv en local: ", l))
     d <- tbi_importer_inv(archivo = archivo,
                           cat_metales = m_met,
@@ -27,13 +39,22 @@ tbi_importar <- function(db, l){
   if(db == "ventas"){
     s <- tbi_h_escogerlocal(l)
     #archivo <- paste0(s, "Sistema/DATOS2/ADTISE00.DBF")
+    # Importante: ver nota previa sobre nombres de sub-rutas en local 2 (compu de alba)
+    if(l==2){
+    archivo <- paste0(s, "SisJOY/DATOS2/ADTIMA00.DBF")
+    inventarios <- paste0(s, "SisJOY/DATOS2/ACARTI00.DBF")
+    m_fam <- paste0(s, "SisJOY/DATOS2/ACGRUP00.DBF")
+    m_met <- paste0(s, "SisJOY/DATOS2/ACMATE00.DBF")
+    tickets <- paste0(s, "SisJOY/DATOS2/ADMOCL00.DBF")
+    m_log <- paste0(s, "SisJOY/DATOS2/ADMOIN00.DBF")
+    }else{
     archivo <- paste0(s, "Sistema/DATOS2/ADTIMA00.DBF")
     inventarios <- paste0(s, "Sistema/DATOS2/ACARTI00.DBF")
     m_fam <- paste0(s, "Sistema/DATOS2/ACGRUP00.DBF")
     m_met <- paste0(s, "Sistema/DATOS2/ACMATE00.DBF")
     tickets <- paste0(s, "Sistema/DATOS2/ADMOCL00.DBF")
     m_log <- paste0(s, "Sistema/DATOS2/ADMOIN00.DBF")
-
+      }
     print(paste0(" >> Usando: tbi_importer_ticks en local: ", l))
 
     d <- tbi_importer_ticks(archivo = archivo,
@@ -313,7 +334,7 @@ tbi_h_escogerlocal <- function(l){
     s <- "c:/usuario.joyeria/"
   }else{
     if(l == 2){
-      s <- "/Users/eduardoflores/Documents/Dropbox/Proyectos/"
+      s <- "C:/Users/Alba/Dropbox/"
     }else{
       if(l == 3){
         s <- "C:/Users/efloresl/Dropbox/Proyectos/"
