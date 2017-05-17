@@ -337,7 +337,7 @@ tbi_h_escogerlocal <- function(l){
       s <- "C:/Users/Alba/Dropbox/"
     }else{
       if(l == 3){
-        s <- "e:/Dropbox/Proyectos/"
+        s <- "E:/Dropbox/Proyectos/"
       }else{
         stop("local incorrecto, escoger 1, 2 o 3")
       }
